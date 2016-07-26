@@ -11,7 +11,7 @@ module Ruboty
       )
 
       def answer(message)
-        message.reply("MELCHIOR-1:[#{answer}] BALTHASAR-2:[#{answer}] CASPER-3:[#{answer}]")
+        message.reply("MELCHIOR-1:[#{lot}] BALTHASAR-2:[#{lot}] CASPER-3:[#{lot}]")
       end
 
       private
