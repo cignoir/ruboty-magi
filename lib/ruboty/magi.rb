@@ -5,7 +5,7 @@ module Ruboty
   module Handlers
     class Magi < Base
       on(
-        /magi.*?/i,
+        /(magi|審議).*?/i,
         name: 'answer',
         description: 'Output result of deliberation'
       )
