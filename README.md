@@ -19,10 +19,6 @@ gem 'ruboty-magi'
 > ruboty magi
 MELCHIOR-1:[承認] BALTHASAR-2:[承認] CASPER-3:[否定]
 
-# An alias of magi command
-> ruboty 審議
-MELCHIOR-1:[否定] BALTHASAR-2:[承認] CASPER-3:[承認]
-
 > ruboty magi 今日休んでもいいですか？
 MELCHIOR-1:[否定] BALTHASAR-2:[否定] CASPER-3:[否定]
 ```
