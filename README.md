@@ -14,13 +14,53 @@ gem 'ruboty-magi'
 ```
 
 ## Usage
+```
+> ruboty magi <option> <message>
+```
 
+### Examples
 ```
 > ruboty magi
 MELCHIOR-1:[承認] BALTHASAR-2:[承認] CASPER-3:[否定]
 
 > ruboty magi 今日休んでもいいですか？
 MELCHIOR-1:[否定] BALTHASAR-2:[否定] CASPER-3:[否定]
+
+> ruboty magi -c
+MELCHIOR-1:[可決] BALTHASAR-2:[保留] CASPER-3:[否決]
+
+> ruboty magi -p
+MELCHIOR-1:[はい] BALTHASAR-2:[いいえ] CASPER-3:[いいえ]
+
+> ruboty magi -s
+[承認][否定][否定]
+
+> ruboty magi -sp
+[はい][いいえ][はい]
+
+> ruboty magi -sc
+[可決][保留][否決]
+```
+
+### Modes
+#### default
+Answer Pattern: ```[承認] | [否定]```
+
+#### complex
+Answer Pattern: ```[可決] | [否決] | [保留]```
+
+#### plain
+Answer Pattern: ```[はい] | [いいえ]```
+
+### Formats
+#### default
+```
+MELCHIOR-1:[] BALTHASAR-2:[] CASPER-3:[]
+```
+
+#### simple
+```
+[][][]
 ```
 
 ## Contributing

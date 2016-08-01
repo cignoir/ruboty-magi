@@ -2,18 +2,42 @@ module Ruboty
   module Handlers
     class Magi < Base
       on(
-          /magi.*?/i,
+          /magi\s*(-(?<option>[a-zA-Z0-9]+)+)*.*/i,
           name: 'answer',
-          description: 'Output result of deliberation'
+          description: 'Magi System answers a question after deep deliberation.'
       )
 
       def answer(message)
-        message.reply("MELCHIOR-1:[#{lot}] BALTHASAR-2:[#{lot}] CASPER-3:[#{lot}]")
+        option = parse_option(message)
+        simple_mode = option.include?(:s)
+        reply_message = judge(answer_pattern(option), simple_mode)
+        message.reply(reply_message)
       end
 
       private
-      def lot
-        %w(承認 否定).sample
+      def parse_option(message)
+        message[:option] ? message[:option].strip.chars.map(&:to_sym) : []
+      rescue
+        []
+      end
+
+      def answer_pattern(option)
+        default = %w(承認 否定)
+        return default unless option
+
+        case
+          when option.include?(:c) then %w(可決 否決 保留) # complex mode
+          when option.include?(:p) then %w(はい いいえ) # plain mode
+          else default
+        end
+      end
+
+      def judge(pattern = [], simple_mode = false)
+        if simple_mode
+          "[#{pattern.sample}][#{pattern.sample}][#{pattern.sample}]"
+        else
+          "MELCHIOR-1:[#{pattern.sample}] BALTHASAR-2:[#{pattern.sample}] CASPER-3:[#{pattern.sample}]"
+        end
       end
     end
   end
