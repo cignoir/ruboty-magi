@@ -2,7 +2,7 @@ module Ruboty
   module Handlers
     class Magi < Base
       on(
-          /magi\s*(-(?<option>[a-zA-Z0-9]+)+)*.*/i,
+          /magi\s*(-(?<option>[spc]+)+)?.*/i,
           name: 'answer',
           description: 'Magi System answers a question after deep deliberation.'
       )
